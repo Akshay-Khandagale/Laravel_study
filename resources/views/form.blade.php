@@ -23,7 +23,8 @@
 
     <span id="output"></span>
 
-    <script>
+    <!-- Jquery Ajax [$.ajax] -->
+    <!-- <script>
         $(document).ready(function(){
             $("#my-form").submit(function(event){
                 event.preventDefault();  
@@ -42,7 +43,7 @@
                     success:function(data){
                         // alert(data.res);
                         $("#output").text(data.res);
-                        $("#btnSubmit").prop("disabled",true);
+                        $("#btnSubmit").prop("disabled",false);
                     },
                     error:function(e){
                         // console.log(e.responseText);
@@ -53,6 +54,37 @@
 
             });
         });
+    </script> -->
+
+    <!-- Start Latest JS Ajax [fetch] -->
+    <script>
+    document.getElementById("my-form").addEventListener("submit", async function(e){
+
+        e.preventDefault();
+
+        const formData = new FormData(this);
+
+        try{
+
+            const response = await fetch("{{ route('addStudent') }}",{
+                method:"POST",
+                headers:{
+                    "X-CSRF-TOKEN":document.querySelector('input[name="_token"]').value
+                },
+                body:formData
+            });
+
+            const result = await response.json();
+
+            document.getElementById("output").innerHTML = result.res;
+            // Clear all form fields
+            document.getElementById("my-form").reset();
+
+        }catch(error){
+            console.log(error);
+        }
+
+    });
     </script>
 
 </body>

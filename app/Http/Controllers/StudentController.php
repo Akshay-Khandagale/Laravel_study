@@ -10,7 +10,7 @@ class StudentController extends Controller
 {
     //
     public function addStudent(Request $request){
-        
+
         $file = $request->file('file');
 
         $filename = time().''.$file->getClientOriginalName();

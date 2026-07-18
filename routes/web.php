@@ -17,4 +17,5 @@ Route::get('/add-student',function(){
     return view('form');
 });
 
-Route::post('add-student',[StudentController::class,'addStudent'])->name('addStudent');
+// Route::post('add-student',[StudentController::class,'addStudent'])->name('addStudent');
+
