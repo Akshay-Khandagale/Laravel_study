@@ -31,7 +31,7 @@
                 var form = $("#my-form")[0]; //get form data
                 var data = new FormData(form);
 
-                $("#btnSubmit").prop("disable",true);
+                $("#btnSubmit").prop("disabled",true);
 
                 $.ajax({
                     type:"POST",
@@ -40,10 +40,14 @@
                     processData:false,
                     contentType:false,
                     success:function(data){
-                        alert(data.res);
+                        // alert(data.res);
+                        $("#output").text(data.res);
+                        $("#btnSubmit").prop("disabled",true);
                     },
                     error:function(e){
-                        console.log(e.responseText);
+                        // console.log(e.responseText);
+                        $("#output").text(e.responseText);
+                        $("#btnSubmit").prop("disabled",false);
                     }
                 })
 
