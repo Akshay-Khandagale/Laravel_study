@@ -27,4 +27,9 @@ class StudentController extends Controller
             'res' => 'Student Created Successfully'
         ]);
     }
+
+    function showStudList(){
+        $students = Student::all();
+        return response()->json($students);
+    }
 }
