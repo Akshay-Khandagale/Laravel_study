@@ -31,5 +31,9 @@ class StudentController extends Controller
     function showStudList(){
         $students = Student::all();
         return response()->json($students);
+        // return response()->json([
+        //     'status' => true,
+        //     'students' => $students
+        // ]);
     }
 }

@@ -66,6 +66,7 @@
 
         try{
 
+            // Start - Data send krtoy
             const response = await fetch("{{ route('addStudent') }}",{
                 method:"POST",
                 headers:{
@@ -74,13 +75,17 @@
                 body:formData
             });
 
+            // End - Data send krtoy
+
+            // Start - Response Ghetoy
             const result = await response.json();
+            // End - Response Ghetoy
 
             document.getElementById("output").innerHTML = result.res;
             // Clear all form fields
             document.getElementById("my-form").reset();
 
-        }catch(error){
+        } catch(error){
             console.log(error);
         }
 
