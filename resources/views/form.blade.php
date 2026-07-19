@@ -12,7 +12,7 @@
 <body>
     <form id="my-form">
         @csrf
-        <input type="text" name="name" placeholder="Enter Name" required>
+        <input type="text" name="name" id="name" placeholder="Enter Name" required>
         <br><br>
         <input type="email" name="email" placeholder="Enter the Email" required>
         <br><br>
@@ -58,6 +58,13 @@
 
     <!-- Start Latest JS Ajax [fetch] -->
     <script>
+
+        // By Default Cursor show on Name Input Field
+        window.onload = function() {
+            document.getElementById("name").focus();
+        };
+
+
     document.getElementById("my-form").addEventListener("submit", async function(e){
 
         e.preventDefault();
